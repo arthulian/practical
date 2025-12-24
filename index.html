@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Self-Regulation & Resilience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg-page: #f3f4f8; [span_6](start_span)/*[span_6](end_span) */
+      --bg-container: #ffffff; [span_7](start_span)/*[span_7](end_span) */
+      --text-main: #333842; [span_8](start_span)/*[span_8](end_span) */
+      --text-title: #1c2840; [span_9](start_span)/*[span_9](end_span) */
+      --text-section-heading: #4b3b73; [span_10](start_span)/*[span_10](end_span) */
+      --text-card-heading: #149c9c; [span_11](start_span)/*[span_11](end_span) */
+      --highlight-orange: #ff8c42; [span_12](start_span)/*[span_12](end_span) */
+      --accent-blue: #4a90e2; [span_13](start_span)/*[span_13](end_span) */
+      --section1-bg: #e9f7ef; [span_14](start_span)/* Modified from[span_14](end_span) for new theme */
+      --section1-border: #b9e2c9; [span_15](start_span)/*[span_15](end_span) */
+      --section2-bg: #e7f2ff; [span_16](start_span)/*[span_16](end_span) */
+      --section2-border: #b8d4ff; [span_17](start_span)/*[span_17](end_span) */
+      --shadow-card: 0 8px 20px rgba(15, 23, 42, 0.08); [span_18](start_span)/*[span_18](end_span) */
+      --shadow-inner-card: 0 3px 10px rgba(15, 23, 42, 0.06); [span_19](start_span)/*[span_19](end_span) */
+      --border-radius-container: 14px; [span_20](start_span)/*[span_20](end_span) */
+      --border-radius-section: 12px; [span_21](start_span)/*[span_21](end_span) */
+      --border-radius-card: 10px; [span_22](start_span)/*[span_22](end_span) */
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; [span_23](start_span)/*[span_23](end_span) */
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7; [span_24](start_span)/*[span_24](end_span) */
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto; [span_25](start_span)/*[span_25](end_span) */
+      padding: 40px;
+      background: var(--bg-container);
+      border-radius: var(--border-radius-container); [span_26](start_span)/*[span_26](end_span) */
+      box-shadow: var(--shadow-card); [span_27](start_span)/*[span_27](end_span) */
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      text-align: center; [span_28](start_span)/*[span_28](end_span) */
+      color: var(--text-title);
+      font-size: 1.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #dde1eb; [span_29](start_span)/*[span_29](end_span) */
+    }
+
+    section {
+      padding: 24px 28px;
+      border-radius: var(--border-radius-section); [span_30](start_span)/*[span_30](end_span) */
+      margin: 32px 0;
+      border: 1px solid transparent; [span_31](start_span)/*[span_31](end_span) */
+    }
+
+    .section-1 { background: var(--section1-bg); border-color: var(--section1-border); [span_32](start_span)} /*[span_32](end_span) */
+    .section-2 { background: var(--section2-bg); border-color: var(--section2-border); [span_33](start_span)} /*[span_33](end_span) */
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 1.5rem; [span_34](start_span)/*[span_34](end_span) */
+      color: var(--text-section-heading);
+      border-left: 6px solid var(--accent-blue); [span_35](start_span)/*[span_35](end_span) */
+      padding-left: 14px;
+    }
+
+    .section-card {
+      background: #ffffff; [span_36](start_span)/*[span_36](end_span) */
+      border-radius: var(--border-radius-card); [span_37](start_span)/*[span_37](end_span) */
+      box-shadow: var(--shadow-inner-card);
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      border-left: 4px solid var(--accent-blue); [span_38](start_span)/*[span_38](end_span) */
+      position: relative;
+    }
+
+    .section-card .section-subheading {
+      margin: 0;
+      font-size: 1.2rem; [span_39](start_span)/*[span_39](end_span) */
+      color: var(--text-card-heading);
+      cursor: pointer; [span_40](start_span)/*[span_40](end_span) */
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e1e5ee;
+      user-select: none; [span_41](start_span)/*[span_41](end_span) */
+    }
+
+    .section-card .section-subheading::after {
+      content: "−"; [span_42](start_span)/*[span_42](end_span) */
+      position: absolute;
+      right: 20px;
+      font-weight: 700;
+    }
+
+    .section-card.collapsed .section-subheading::after { content: "+"; [span_43](start_span)} /*[span_43](end_span) */
+    .section-card.collapsed > *:not(.section-subheading) { display: none; [span_44](start_span)} /*[span_44](end_span) */
+
+    ul { padding-left: 1.2rem; margin: 12px 0 0; [span_45](start_span)} /*[span_45](end_span) */
+    li { margin-bottom: 0.35rem; [span_46](start_span)} /*[span_46](end_span) */
+    strong { color: var(--highlight-orange); font-weight: 600; [span_47](start_span)} /*[span_47](end_span) */
+    
+    .intro-text { margin-bottom: 20px; font-weight: 500; color: var(--text-title); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SELF-REGULATION</h1>
+    <p style="text-align: center; margin-top: -15px; margin-bottom: 30px;">
+      Sustaining goal-directed behavior by controlling impulses, focusing attention and regulating emotions under pressure or distraction.
+    </p>
+
+    <section class="section-1">
+      <h2>1. Sense-Making</h2>
+      <p class="intro-text">Constructs a coherent model of reality by integrating metacognitive data with allocentric perspectives, reconciling their conflicts, and revising priors when warranted.</p>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1a. Critical Thinking</h3>
+        <p>Evaluates an assertion by estimating the plausibility of its proposition, assessing the reliability of its source, and stress-testing its justification for logical integrity and evidential relevance.</p>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1b. Objectivity</h3>
+        <ul>
+          <li>Identifies uneven standards in belief formation, then applies empirical and rational criteria uniformly, to judge information accurately and fairly.</li>
+          <li><strong>Example:</strong> Applies the “Veil of ignorance”</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1c. Fairness</h3>
+        <ul>
+          <li>Applies impartial balance between empathy and norms of accountability in reciprocal interactions, irrespective of circumstances.</li>
+          <li><strong>Example:</strong> Admits mistakes to prevent double standards and avoid hypocrisy</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1d. Self-Reflection</h3>
+        <p>Analyzes past mistakes to identify patterns, then formulates if/then strategies for similar future situations, avoiding rumination by converting reflection into actionable learning.</p>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1e. Self-Efficacy</h3>
+        <ul>
+          <li>Emerges when confidence is grounded in an accurate assessment of one’s abilities, but it wanes if skills are unused or untested.</li>
+          <li><strong>Examples:</strong>
+            <ul>
+              <li>Integrates personal achievements into self-concept</li>
+              <li>Interprets setbacks as skill gaps rather than self-worth deficits</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-2">
+      <h2>2. Self-Discipline</h2>
+      <p class="intro-text">Applies self-regulation consistently to align behavior with long-term goals and principles, while avoiding rigidity and complacency.</p>
+
+      <div class="section-card">
+        <h3 class="section-subheading">2a. Perseverance</h3>
+        <ul>
+          <li>Sustains effort and endurance amid hardship or challenge by countering fear-based avoidance via commitment to a goal.</li>
+          <li><strong>Examples:</strong>
+            <ul>
+              <li>Treats fear-responses as trainable signals</li>
+              <li>Uses graduated exposure to fear, to build resilience</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">2b. Temperance</h3>
+        <ul>
+          <li>Treats willpower as a limited resource and therefore allocates effort by order of importance.</li>
+          <li><strong>Example:</strong> Compresses emotions into a single word to regain focus</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var cards = document.querySelectorAll(".section-card");
+      cards.forEach(function (card) {
+        [span_48](start_span)card.classList.add("collapsed"); /*[span_48](end_span) */
+        var heading = card.querySelector(".section-subheading");
+        if (heading) {
+          heading.addEventListener("click", function () {
+            [span_49](start_span)card.classList.toggle("collapsed"); /*[span_49](end_span) */
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
