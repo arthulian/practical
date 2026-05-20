@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Framework</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      /* Base colors - Dark Mode */
+      --bg-page: #121212;
+      --bg-container: #1e1e1e;
+
+      --text-main: #e0e0e0;
+      --text-title: #ffffff;
+      --text-section-heading: #bb86fc;
+      --text-card-heading: #03dac6;
+      --highlight-orange: #ffab91;
+
+      --accent-blue: #81d4fa;
+
+      /* Section backgrounds */
+      --section1-bg: #2c2e3a;
+      --section1-border: #4a4e69;
+      --section2-bg: #2d3431;
+      --section2-border: #4d5b54;
+
+      /* Shadows & borders */
+      --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.4);
+      --shadow-inner-card: 0 3px 10px rgba(0, 0, 0, 0.3);
+      --border-radius-container: 14px;
+      --border-radius-section: 12px;
+      --border-radius-card: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px;
+      background: var(--bg-container);
+      border-radius: var(--border-radius-container);
+      box-shadow: var(--shadow-card);
+    }
+
+    /* Main title */
+    h1 {
+      margin: 0 0 12px;
+      text-align: center;
+      color: var(--text-title);
+      font-size: 1.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #aaa;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #333;
+      font-style: italic;
+    }
+
+    /* Large colored sections */
+    section {
+      padding: 24px 28px;
+      border-radius: var(--border-radius-section);
+      margin: 32px 0;
+      border: 1px solid transparent;
+    }
+
+    .section-1 {
+      background: var(--section1-bg);
+      border-color: var(--section1-border);
+    }
+
+    .section-2 {
+      background: var(--section2-bg);
+      border-color: var(--section2-border);
+    }
+
+    /* Section headings (h2) */
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.5rem;
+      color: var(--text-section-heading);
+      border-left: 6px solid var(--accent-blue);
+      padding-left: 14px;
+    }
+
+    .section-desc {
+      margin-bottom: 18px;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    /* White subsection cards */
+    .section-card {
+      background: #252525;
+      border-radius: var(--border-radius-card);
+      box-shadow: var(--shadow-inner-card);
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      border-left: 4px solid var(--accent-blue);
+      position: relative;
+    }
+
+    /* Collapsible subheadings */
+    .section-card .section-subheading {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      color: var(--text-card-heading);
+      cursor: pointer;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #444;
+      position: relative;
+      user-select: none;
+    }
+
+    .section-card .section-subheading::after {
+      content: "−";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .section-card.collapsed .section-subheading::after {
+      content: "+";
+    }
+
+    .section-card.collapsed > *:not(.section-subheading) {
+      display: none;
+    }
+
+    /* List styling */
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    strong {
+      color: var(--highlight-orange);
+      font-weight: 600;
+    }
+
+    .example-label {
+      color: #ce93d8;
+      font-weight: 600;
+      display: block;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 20px;
+        margin: 20px auto;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      section {
+        padding: 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Framework</h1>
+    
+    <section class="section-1">
+      <h2>1. Sense-Making</h2>
+      <p class="section-desc">Constructs a coherent model of reality by integrating metacognitive data with allocentric perspectives, reconciling their conflicts, and revising preconceptions when warranted.</p>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1a. Critical Thinking</h3>
+        <p>Evaluates an assertion by estimating the plausibility of its proposition, assessing the reliability of its source, and stress-testing its justification for logical integrity and evidential relevance.</p>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1b. Objectivity</h3>
+        <p>Identifies uneven standards in belief formation, then applies empirical and rational criteria uniformly, to judge information accurately and fairly.</p>
+        <span class="example-label">Step:</span>
+        <ul>
+          <li>Applies the “Veil of ignorance”</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1c. Fairness</h3>
+        <p>Applies impartial balance between empathy and norms of accountability in reciprocal interactions, irrespective of circumstances.</p>
+        <span class="example-label">Step:</span>
+        <ul>
+          <li>Admits mistakes to prevent double standards and hypocrisy</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">1d. Self-Efficacy</h3>
+        <p>Emerges when confidence is grounded in an accurate assessment of one’s abilities, but it wanes if skills are unused or untested.</p>
+        <span class="example-label">Steps:</span>
+        <ul>
+          <li>Integrates personal achievements into self-concept</li>
+          <li>Interprets setbacks as skill gaps rather than self-worth deficits</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-2">
+      <h2>2. Self-Discipline</h2>
+      <p class="section-desc">Applies self-regulation consistently to align behavior with long-term goals and principles.</p>
+
+      <div class="section-card">
+        <h3 class="section-subheading">2a. Perseverance</h3>
+        <p>Sustains effort and endurance amid hardship or challenge by countering fear-based avoidance with courage.</p>
+        <span class="example-label">Steps:</span>
+        <ul>
+          <li>Treats fear-responses as trainable signals</li>
+          <li>Uses graduated exposure to fear, to build resilience</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-subheading">2b. Temperance</h3>
+        <p>Treats willpower as a limited resource and therefore allocates effort by order of importance.</p>
+        <span class="example-label">Step:</span>
+        <ul>
+          <li>Summarizes emotions into a single word to regain focus</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var cards = document.querySelectorAll(".section-card");
+      cards.forEach(function (card) {
+        card.classList.add("collapsed");
+        var heading = card.querySelector(".section-subheading");
+        if (heading) {
+          heading.addEventListener("click", function () {
+            card.classList.toggle("collapsed");
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
